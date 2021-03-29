@@ -4,7 +4,13 @@ const idx = Math.floor(Math.random() * 5)
 const main = (data) => {
   // code here
   let result = {}
-
+  for (let i = 0; i < data.length; i++) {
+    let letter = data[i].toLowerCase()
+    if (letter === ' ') continue
+    else if (!result[letter]) result[letter] = 1
+    else if (result[letter] >= 1) result[letter]++
+  }
+  // console.log(result)
   return result
 }
 
@@ -12,8 +18,8 @@ const main = (data) => {
 // don't change code below
 const test = (func, result) => {
   let flag = false
-  if (Object.keys(func).join() === Object.keys(result).join()) flag = true
-  else if (Object.keys(func).join() !== Object.keys(result).join()) flag = false
+  if (Object.keys(func).join().toLowerCase() === Object.keys(result).join().toLowerCase()) flag = true
+  else if (Object.keys(func).join().toLowerCase() !== Object.keys(result).join().toLowerCase()) flag = false
   else if (Object.values(func).join() === Object.values(result).join()) flag = true
   else if (Object.values(func).join() !== Object.values(result).join()) flag = false
   return console.log(flag)
