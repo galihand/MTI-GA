@@ -10,7 +10,6 @@ const main = (data) => {
     else if (!result[letter]) result[letter] = 1
     else if (result[letter] >= 1) result[letter]++
   }
-  // console.log(result)
   return result
 }
 
